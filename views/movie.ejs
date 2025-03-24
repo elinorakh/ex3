@@ -1,0 +1,121 @@
+<!--Created By: Mohammed Huleihil, Tasnem Tarabeh, Elinor Khalul--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= film.Title %> - (<%= film.Year %>)</title>
+<link href="/css/movie.css" type="text/css" rel="stylesheet">
+<link href="./images/rotten.gif" type="image/gif" rel="shortcut icon" />
+</head>
+
+
+<body>
+<!--  Banner Section -->
+<div class="banner">
+    <img src="./images/banner.png" alt="Rancid Tomatoes" />
+</div>
+<!-- title -->
+<h1><%= film.Title %> (<%= film.Year %>)</h1>
+
+<div class="contaniner">
+    <div class="rating-section">
+        <div class="Rating" style="background-color: #42642E;">
+            <img src="./images/freshbig.png" alt="Fresh" />
+            <span><%= film.Score %>%</span>
+        </div> 
+    </div>  
+
+    <div class="contant" style="display: flex; justify-content: space-between; width: 100%;">
+
+        <!-- Left Section - Reviews -->
+        <div class="left" style=" flex-wrap: wrap; gap: 20px; width: 70%;">
+            <% for (let i = 0; i < reviews.length; i += 2) { %>
+                <div class="reviews-row" style="display: flex; width: 100%; justify-content: space-between;">
+                    <% for (let j = 0; j < 2 && (i + j) < reviews.length; j++) { %>
+                        <div class="reviews-section" style="width: 48%; padding: 10px;">
+                            <div class="review">
+                                <p>
+                                    <% if (reviews[i + j].ReviewText.toLowerCase().includes("bad") || reviews[i + j].ReviewText.toLowerCase().includes("rotten")) { %>
+                                        <img src="./images/rotten.gif" alt="Rotten" />
+                                    <% } else { %>
+                                        <img src="./images/fresh.gif" alt="Fresh" />
+                                    <% } %>
+                                    <q><%= reviews[i + j].ReviewText %></q>
+                                </p>
+                            </div>
+                            <div class="<%= (i + j) % 2 === 0 ? 'review-left' : 'review-mid' %>">
+                                <p>
+                                    <img src="./images/critic.gif" alt="Critic" />
+                                    <%= reviews[i + j].ReviewerName %> <br />
+                                    <%= reviews[i + j].Affiliation %>
+                                </p>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+    
+          <!-- Right Section - Poster + Rating + Details -->
+          <div class="right">
+            style="flex-basis: 25%; padding: 10 px;">
+            <img src="<%= posterPath %>" alt="<%= film.Title %> Poster">
+    
+            
+    
+            <div class="right-cont">
+              <dl>
+                <% const order = [
+                  "Starring",
+                  "Director",
+                  "Rating",
+                  "Theatrical Release",
+                  "Movie Synopsis",
+                  "MPAA Rating",
+                  "Release Company",
+                  "Runtime",
+                  "Genre",
+                  "Box Office",
+                  "Links"
+                ];
+                order.forEach(label => {
+                  const item = details.find(d => d.Attribute && d.Attribute.toLowerCase() === label.toLowerCase());
+                  if (item) { %>
+                  <dt><%= item.Attribute %></dt>
+                  <dd>
+                    <% if (item.Attribute.toLowerCase() === "links" && typeof item.Value === "string") {
+                         const links = item.Value.split(',').map(link => link.trim());
+                         links.forEach(linkText => {
+                           const parts = linkText.split(":");
+                           const text = parts[0].trim();
+                           const url = parts.slice(1).join(":").trim();
+                           if (url.startsWith("http")) { %>
+                             <li><a href="<%= url %>"><%= text %></a></li>
+                    <%     }
+                         });
+                       } else if (Array.isArray(item.Value)) { %>
+                      <% item.Value.forEach(value => { %>
+                        <span><%= value %></span><br>
+                      <% }); %>
+                    <% } else { %>
+                      <span><%= item.Value %></span>
+                    <% } %>
+                  </dd>
+                <% } }); %>
+              </dl>
+            </div>
+          </div>
+    
+          <!-- Spacer Column (Optional) -->
+          <div></div>
+        </div>
+    
+        <!-- Footer -->
+        <div class="footer">
+          (1-<%= reviews.length || 0 %>) of <%= typeof totalReviews !== "undefined" ? totalReviews : 0 %>
+        </div>
+      </div>
+    </body>
+    </html>
+    
