@@ -198,121 +198,34 @@ dd {
 /* media query */
 
 @media screen and (max-width: 786px) {
-    .contaniner {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        background-color: #f5f5dc;
-        padding: 10px 0;
-    }
 
-    .banner {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
+        .contaniner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* 🟩 מידע (פוסטר + פרטים) */
+        .right {
+            order: 1;
+            width: 100%;
+        }
+        
+        /* 🍅 דירוג */
+        .rating-section {
+            order: 2;
+            width: 100%;
+        }
+        
+        /* 💬 ביקורות */
+        .left {
+            order: 3;
+            width: 100%;
+        }
+        
+        /* 📎 פוטר */
+        .footer {
+            order: 4;
+            width:100%;
+        }
     }
-
-    .banner img {
-        width: 150px;
-    }
-
-    h1 {
-        width: 100%;
-        text-align: center;
-        font-size: 1.8rem;
-        font-weight: bold;
-        padding: 15px 0;
-    }
-
-    .right {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 15px;
-        margin-left: 0;
-    }
-
-    .right img {
-        width: 90%;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .right-cont {
-        width: 90%;
-        text-align: center;
-        font-size: 0.9rem;
-        font-weight: bold;
-        padding: 10px;
-        background-color: #c1d8a3;
-        border-radius: 10px;
-        margin-top: 20px;
-    }
-
-    .Rating {
-        width: 100%;
-        text-align: center;
-        background-color: #42642E;
-        padding: 15px;
-        font-size: 2rem;
-        font-weight: bold;
-        color: #e60606;
-        margin-top: 10px;
-    }
-
-    .Rating img {
-        width: 50px;
-    }
-
-    .left {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .reviews-section {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 0;
-    }
-
-    .review {
-        width: 90%;
-        padding: 15px;
-        font-weight: bold;
-        border: 2px solid gray;
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.05);
-        margin-bottom: 15px;
-        text-align: left;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    }
-
-    .review img {
-        width: 20px;
-    }
-
-    .review-left, .review-mid {
-        text-align: left;
-        font-size: 0.9rem;
-        color: #333;
-        margin-left: 10px;
-    }
-
-    .footer {
-        width: 100%;
-        height: auto;
-        padding: 10px;
-        font-size: 0.9rem;
-        text-align: center;
-        background-color: #42642E;
-        color: white;
-        margin-top: 20px;
-    }
-}
