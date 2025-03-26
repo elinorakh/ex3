@@ -8,6 +8,7 @@ body {
 .left {
     transform: translateY(90px);
     height: auto;
+    
 }
 
 .mid {
@@ -56,7 +57,7 @@ h1 {
     justify-content: space-between;
     margin: 0 auto;
     width: 90%;
-    min-height: 100vh;
+    min-height: 150vh;
 
     height: auto;
     border: 4px solid gray;
@@ -96,23 +97,27 @@ h1 {
     top: 0;
 }
 
+
 .contant {
-    display: grid;
-    grid-template-columns: 40% 40% 20%;
-    position: relative;
-    /* top: 6%; */
-    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;   /* ממורכז */
+    align-items: flex-start;
+    gap: 30px;                 /* רווח אחיד בין העמודות */
     width: 100%;
-
-
-}
-
-
-.reviews-section {
-    width: 100%;
-    margin: 10px auto;
-    gap: 5%;
-}
+    padding: 20px 0;
+  }
+  
+  .rating-section {
+    order: 1;
+    width: 18%;
+  } 
+  .reviews-section {
+    width: 48%;
+    padding: 10px;
+    margin: 0;
+  }
+  
 
 .review {
     padding-left: 10px;
@@ -126,6 +131,7 @@ h1 {
 }
 
 
+
 .right {
     height: auto;
     width: 25%;
@@ -135,6 +141,13 @@ h1 {
     color: white;
     font-size: 0.95rem;
     margin-left: auto;
+    grid-area: right;
+    order: 3;
+    text-align: left; /* 👈 זה מה שמיישר את כל הטקסט שמאלה */
+    margin: 0;
+    padding: 0;
+    
+      
 }
 
 .right img {
@@ -144,8 +157,25 @@ h1 {
     position: relative;
     top: -1%;
     z-index: 10;
+    
+    
+    
+}
+.rating-section {
+    order: 1;
+    width: 20%;
 }
 
+.left {
+    order: 2;
+    width: 52%; /* עדיף מה-70% שב-html */
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+
+  
 .right-cont {
     position: static;
     margin: 0;
@@ -164,13 +194,20 @@ dl {
 
 dt {
     font-weight: bold;
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
+   
 }
 
 dd {
     margin-bottom: 1rem;
-    margin-left: 0;
+    margin-left:5rex;
 }
+.right dl,
+.right dt,
+.right dd {
+  text-align: left;
+}
+
 .footer {
     background-color: #42642E;
     position: absolute;
@@ -197,35 +234,80 @@ dd {
 
 /* media query */
 
+
 @media screen and (max-width: 786px) {
 
-        .contaniner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        /* 🟩 מידע (פוסטר + פרטים) */
-        .right {
-            order: 1;
-            width: 100%;
-        }
-        
-        /* 🍅 דירוג */
-        .rating-section {
-            order: 2;
-            width: 100%;
-        }
-        
-        /* 💬 ביקורות */
-        .left {
-            order: 3;
-            width: 100%;
-        }
-        
-        /* 📎 פוטר */
-        .footer {
-            order: 4;
-            width:100%;
-        }
+    .contant {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0; /* ✅ מבטל רווחים בין הסקשנים */
     }
+  
+    .right {
+      order: 1;
+      width: 100%;
+      margin-bottom: 0; /* ✅ מבטל רווח מתחת לחלון הימני */
+    }
+  
+    .rating-section {
+      order: 2;
+      width: 100%;
+      position: static !important;
+      margin: 0 auto; /* ✅ מבטל רווחים אנכיים */
+      z-index: auto !important;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .Rating {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: static !important;
+      border-radius: 20px;
+      background: url('/images/rbg.png') repeat-x;
+      padding: 10px 20px;
+      max-width: 300px;
+      width: 90%;
+    }
+  
+    .Rating img {
+      height: auto;
+      margin: 0;
+    }
+  
+    .Rating span {
+      position: static !important;
+      font-size: 3rem;
+      color: #e60606;
+      display: block;
+    }
+  
+    .left {
+      order: 3;
+      width: 100%;
+    }
+  
+    .reviews-row {
+      display: flex;
+      flex-direction: column !important;
+      align-items: center;
+      width: 100%;
+    }
+  
+    .reviews-section {
+      width: 100%;
+    }
+  
+    .footer {
+      order: 4;
+      width: 100%;
+      position: static !important;
+      height: auto;
+      padding: 10px;
+      font-size: 0.9rem;
+      border-radius: 0;
+    }
+  }
+  
