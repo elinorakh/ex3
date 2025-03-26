@@ -1,11 +1,24 @@
-<!--Created By: Mohammed Huleihil, Tasnem Tarabeh, Elinor Khalul--> 
+<!-- 
+=============================================
+Created By: Mohammed Huleihil, Tasnem Tarabeh, Elinor Khalul
+Date: 5/3/2025
+Description:
+This EJS template renders a dynamic movie review page.
+It displays the movie title, year, rating image, critic reviews, movie poster, and metadata.
+The layout is responsive and styled via movie.css.
+=============================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><%= film.Title %> - (<%= film.Year %>)</title>
+
+<!-- Link to the main stylesheet -->
 <link href="/css/movie.css" type="text/css" rel="stylesheet">
+
+  <!-- Favicon -->
 <link href="./images/rotten.gif" type="image/gif" rel="shortcut icon" />
 </head>
 
@@ -16,20 +29,22 @@
     <img src="./images/banner.png" alt="Rancid Tomatoes" />
 </div>
 
-<!-- title -->
+<!--Movie Title -->
 <h1><%= film.Title %> (<%= film.Year %>)</h1>
 
 <div class="contaniner">
-   
-
-    <div class="contant" style="display: flex; justify-content: space-between; width: 100%;">
+  
+  <!-- ===== Main Content Layout ===== -->
+   <div class="contant" style="display: flex; justify-content: space-between; width: 100%;">
       
-      <!-- Right Section - Poster + Rating + Details -->
+        <!-- ===== Right Section: Poster + Movie Details ===== -->
       <div class="right" style="flex-basis: 30%; padding: 10px;">
         <div style="text-align: center;">
         
+        <!-- Movie Poster -->
         <img src="<%= posterPath %>" alt="<%= film.Title %> Poster">
 
+         <!-- Movie Details (from FilmDetails table) -->
         <div class="right-cont" style="margin-top: 15px;"></div>
 
         <div class="right-cont">
@@ -75,52 +90,53 @@
         </div>
       </div>
 
-      <!-- Spacer Column (Optional) -->
-      <div></div>
-    </div>
 
+     <!-- ===== Center Section: Rating Image ===== -->
     <div class="rating-section">
       <div class="Rating" style="background-color: #42642E;">
           <img src="./images/freshbig.png" alt="Fresh" />
           <span><%= film.Score %>%</span>
       </div> 
   </div>  
-        <!-- Left Section - Reviews -->
+
+        <!-- ===== Left Section: Reviews ===== -->
         <div class="left" >
             <% for (let i = 0; i < reviews.length; i += 2) { %>
                 <div class="reviews-row" style="display: flex; width: 100%; justify-content: space-between;">
                     <% for (let j = 0; j < 2 && (i + j) < reviews.length; j++) { %>
                         <div class="reviews-section" style="width: 48%; padding: 10px;">
-                          
+                            <!-- Review Text and Score -->
                             <div class="review">
-                                <p>
-                                    <% if (reviews[i + j].ReviewText.toLowerCase().includes("bad") || reviews[i + j].ReviewText.toLowerCase().includes("rotten")) { %>
-                                        <img src="./images/rotten.gif" alt="Rotten" />
-                                    <% } else { %>
-                                        <img src="./images/fresh.gif" alt="Fresh" />
-                                    <% } %>
-                                    <q><%= reviews[i + j].ReviewText %></q>
-                                </p>
+                              <p>
+                                <% if (reviews[i + j].ReviewText.toLowerCase().includes("bad") || reviews[i + j].ReviewText.toLowerCase().includes("rotten")) { %>
+                                  <img src="./images/rotten.gif" alt="Rotten" />
+                                <% } else { %>
+                                  <img src="./images/fresh.gif" alt="Fresh" />
+                                <% } %>
+                                <q><%= reviews[i + j].ReviewText %></q>
+                              </p>
                             </div>
+            
+                            <!-- Reviewer Info -->
                             <div class="<%= (i + j) % 2 === 0 ? 'review-left' : 'review-mid' %>">
-                                <p>
-                                    <img src="./images/critic.gif" alt="Critic" />
-                                    <%= reviews[i + j].ReviewerName %> <br />
-                                    <%= reviews[i + j].Affiliation %>
-                                </p>
+                              <p>
+                                <img src="./images/critic.gif" alt="Critic" />
+                                <%= reviews[i + j].ReviewerName %> <br />
+                                <%= reviews[i + j].Affiliation %>
+                              </p>
                             </div>
-                        </div>
+                          </div>
+                        <% } %>
+                      </div>
                     <% } %>
+                  </div>
                 </div>
-            <% } %>
-        </div>
-    
-          
-        <!-- Footer -->
-        <div class="footer">
-          (1-<%= reviews.length || 0 %>) of <%= typeof totalReviews !== "undefined" ? totalReviews : 0 %>
-        </div>
-      </div>
-    </body>
-    </html>
-    
+            
+                <!-- ===== Footer Section ===== -->
+                <div class="footer">
+                  (1-<%= reviews.length || 0 %>) of <%= typeof totalReviews !== "undefined" ? totalReviews : 0 %>
+                </div>
+            
+              </div>
+            </body>
+            </html>
