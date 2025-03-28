@@ -102,9 +102,9 @@ The layout is responsive and styled via movie.css.
         <!-- Left Section - Reviews -->
         <div class="left" >
             <% for (let i = 0; i < reviews.length; i += 2) { %>
-                <div class="reviews-row" style="display: flex; width: 100%; justify-content: space-between;">
+                <div class="reviews-row" style="display: flex; width: 100%; justify-content: space-around;">
                     <% for (let j = 0; j < 2 && (i + j) < reviews.length; j++) { %>
-                        <div class="reviews-section" >
+                        <div class="reviews-section" style=" padding: 10px;">
                           
                             <div class="review">
                                 <p>
