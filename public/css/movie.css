@@ -1,320 +1,309 @@
-/* =============================================
-   File: movie.css
-   Authors: Mohammed Huleihil, Tasnem Tarabeh, Elinor Khalul
-   Date: 13/3/2025
-   Description:
-   This stylesheet defines the layout, visual structure, and responsive design
-   for the Movie Review Web Application. It handles styling for banners,
-   containers, reviews, ratings, and movie details on both desktop and mobile.
-   ============================================= */
-
-/* === Global Page Styling === */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Tahoma, Arial, sans-serif;
-    background: url('/images/background.png') repeat center center fixed;
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: url('/images/background.png') repeat center center fixed;
 }
-
-/* === Layout Sections === */
 .left {
-    transform: translateY(90px);
-    height: auto;
-    
+  transform: translateY(90px);
+  height: auto;
+  
 }
 
 .mid {
-    height: auto;
-    transform: translateY(90px);
+  height: auto;
+  transform: translateY(90px);
 }
 
-/* === Top Banner Styling === */
 .banner {
-    background: url('./images/bannerbg.png') repeat-x;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    position: relative;
-width: 100%;
-height: 4rem; /* fits the required height */
-background-image: url('/images/bannerbg.png');
-background-repeat: repeat-x; /* repeats only horizontally */
-background-size: auto 100%; /* maintains aspect ratio */
-background-position: top;
+  background: url('./images/bannerbg.png') repeat-x;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  position: relative;
+  width: 100%;
+  height: 4rem; /* fits the required height */
+  background-image: url('/images/bannerbg.png');
+  background-repeat: repeat-x; /* repeats only horizontally */
+  /* background-size: auto 100%; */ /* maintains aspect ratio */
+  background-position: top;
 }
 
 .banner img {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-30%);
 }
 
-/* === Header Styling === */
 h1 {
-    text-align: center;
-    font-family: Verdana, Calibri, sans-serif;
-    font-size: 3rem;
-    font-weight: bold;
-    color: #000;
-    text-shadow: 2px 2px #999999;
-    margin: 1rem 0;
+  text-align: center;
+  font-family: Verdana, Calibri, sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 2px 2px #999999;
+  margin: 1rem 0;
 }
 
-/* === Main Container === */
 .contaniner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 90%;
-    min-height: 150vh;
-
-    height: auto;
-    border: 4px solid gray;
-    border-radius: 40px;
-
-    position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 90%;
+  min-height: 150vh;
+  height: auto;
+  border: 4px solid gray;
+  /* padding: 0 10px; */ /* ✅ רווח פנימי */
+  /* box-sizing: border-box; */
+  border-radius: 40px;
+  position: relative;
 }
 
-/* === Movie Rating Section === */
+
+
 .Rating {
-    text-align: left;
-    width: 100%;
-    margin-bottom: 16px;
-    border-top-left-radius: 36px;
-    border-top-right-radius: 36px;
-    background: url('/images/rbg.png') repeat-x; /* רקע קיים */
-    position: absolute;
-    top: 0;
-    z-index: 1; /* דירוג נמצא שכבה אחת מעל */
+  text-align: left;
+  width: 100%;
+  margin-bottom: 16px;
+  border-top-left-radius: 36px;
+  border-top-right-radius: 36px;
+  background: url('/images/rbg.png') repeat-x; /* רקע קיים */
+  position: absolute;
+  top: 0;
+  z-index: 1; /* דירוג נמצא שכבה אחת מעל */
 }
 
 .Rating img {
-    margin: 0 auto;
-    border-top-left-radius: 36px;
+  margin: 0 auto;
+  border-top-left-radius: 36px;
 }
+
+
+
 
 .Rating span {
-    font-size: 4rem;
-    font-weight: bold;
-    color: #e60606;
-    position: absolute;
-    top: 0;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #e60606;
+  position: absolute;
+  top: 0;
 }
 
 
-/* === Content Columns === */
 .contant {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;   /* ממורכז */
-    align-items: flex-start;
-    gap: 30px;                 /* רווח אחיד בין העמודות */
-    width: 100%;
-    padding: 20px 0;
-  }
-  
-.rating-section {
-    order: 1;
-    width: 18%;
-  }
-
-.reviews-section {
-    width: 48%;
-    padding: 10px;
-    margin: 0;
-  }
-  
-.review {
-    padding-left: 10px;
-    font-weight: bold;
-    border: 2px solid gray;
-    border-radius: 20px;
-    box-shadow: 0 1px 2px;
-    width: 90%;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
 }
 
-/* === Sidebar (Right Section) === */
+.rating-section {
+  order: 1;
+  /* width: 18%; */
+} 
+.reviews-section {
+  width: 48%;
+  padding: 10px;
+  margin: 0;
+}
+
+
+.review {
+  padding-left: 10px;
+  font-weight: bold;
+  border: 2px solid gray;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
 .right {
-    height: auto;
-    width: 25%;
-    background-color: #42642E;
-    padding: 15px;
-    border-radius: 20px;
-    color: white;
-    font-size: 0.95rem;
-    margin-left: auto;
-    grid-area: right;
-    order: 3;
-    text-align: left; /* 👈 זה מה שמיישר את כל הטקסט שמאלה */
-    margin: 0;
-    padding: 0;      
+  height: auto;
+  width: 25%;
+  background-color: #42642E;
+  padding: 15px;
+  border-bottom-right-radius: 36px;
+  border-top-right-radius: 36px;
+  color: white;
+  font-size: 0.95rem;
+  margin-left: auto;
+  grid-area: right;
+  order: 3;
+  text-align: left; /* 👈 זה מה שמיישר את כל הטקסט שמאלה */
+  /* margin: 0; */
+  padding: 0;
 }
 
 .right img {
-    width: 100%;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    position: relative;
-    top: -1%;
-    z-index: 10;
-    
-    
-/* === Layout Adjustments for Specific Sections === */
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  position: relative;
+  top: -1%;
+  z-index: 10;
+  border-top-right-radius: 36px;
+  border-top-left-radius: 36px;
 }
 .rating-section {
-    order: 1;
-    width: 20%;
+  order: 1;
+  /* width: 20%; */
 }
 
 .left {
-    order: 2;
-    width: 52%; /* עדיף מה-70% שב-html */
-    margin: 0;
-    padding: 0;
-  }
-  
+  order: 2;
+  width: 70%; /* עדיף מה-70% שב-html */
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
 .right-cont {
-    position: static;
-    margin: 0;
-    padding: 0 10px;
+  position: static;
+  margin: 0;
+  padding: 0 10px;
 }
 
 .right-cont li {
-    list-style: none;
+  list-style: none;
 }
 
-/* === Movie Metadata === */
 dl {
-    margin: 0;
-    padding: 0;
-    font-size: 0.9rem;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
 }
 
 dt {
-    font-weight: bold;
-    margin-top: 0.7rem;
-   
+  font-weight: bold;
+  margin-top: 0.7rem;
+ 
 }
 
 dd {
-    margin-bottom: 1rem;
-    margin-left:5rex;
+  margin-bottom: 1rem;
+  margin-left:5rex;
 }
 .right dl,
 .right dt,
 .right dd {
-  text-align: left;
+text-align: left;
 }
 
-
-/* === Footer Section === */
 .footer {
-    background-color: #42642E;
-    position: absolute;
-    bottom: 0;
-    height: 10vh;
-    width: 100%;
-    border-bottom-right-radius: 36px;
-    border-bottom-left-radius: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    margin-bottom: 0;
-    z-index: -1;
+  background-color: #42642E;
+  position: absolute;
+  bottom: 0;
+  height: 10vh;
+  width: 100%;
+  border-bottom-right-radius: 36px;
+  border-bottom-left-radius: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-bottom: 0;
+  z-index: -1;
 }
 
-/* === Individual Review Columns (Optional classes) === */
 .review-left {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 .review-mid {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 /* media query */
 
 
-/* === Responsive Styling for Mobile Screens === */
 @media screen and (max-width: 786px) {
-    .contant {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-    }
 
-    .right {
-        order: 1;
-        width: 100%;
-        margin-bottom: 0;
-    }
+  .contant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    .rating-section {
-        order: 2;
-        width: 100%;
-        position: static !important;
-        margin: 0 auto;
-        z-index: auto !important;
-        display: flex;
-        justify-content: center;
-    }
+  
+    /* padding: 0 1rem; */
+    /* box-sizing: border-box; */
+  }
 
-    .Rating {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        position: static !important;
-        border-radius: 20px;
-        background: url('/images/rbg.png') repeat-x;
-        padding: 10px 20px;
-        max-width: 300px;
-        width: 90%;
-    }
+  .right {
+    order: 1;
+    width: 100%;
+    margin-bottom: 0; /* ✅ מבטל רווח מתחת לחלון הימני */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+  }
 
-    .Rating img {
-        height: auto;
-        margin: 0;
-    }
+  .rating-section {
+    order: 2;
+    width: 100%;
+    position: static !important;
+    z-index: auto !important;
+    display: flex;
+    justify-content: center;
+  }
 
-    .Rating span {
-        position: static !important;
-        font-size: 3rem;
-        color: #e60606;
-        display: block;
-    }
+  .Rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: static !important;
+    border-radius: 0px;
+    background: url('/images/rbg.png') repeat-x;
+    /* padding: 10px 20px; */
+    /* max-width: 300px; */
+    width: 100%;
+  }
 
-    .left {
-        order: 3;
-        width: 100%;
-    }
+  .Rating img {
+    height: auto;
+    margin: 0;
+  }
 
-    .reviews-row {
-        display: flex;
-        flex-direction: column !important;
-        align-items: center;
-        width: 100%;
-    }
+  .Rating span {
+    position: static !important;
+    font-size: 3rem;
+    color: #e60606;
+    display: block;
+  }
 
-    .reviews-section {
-        width: 100%;
-    }
+  .left {
+    order: 3;
+    width: auto;
+  }
 
-    .footer {
-        order: 4;
-        width: 100%;
-        position: static !important;
-        height: auto;
-        padding: 10px;
-        font-size: 0.9rem;
-        border-radius: 0;
-    }
+  .reviews-row {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    width: auto;
+  }
+
+  .reviews-section {
+    width: 100%;
+  }
+
+  .footer {
+    order: 4;
+    width: 100%;
+    position: static !important;
+    height: auto;
+    padding: 10px;
+  }
 }
+

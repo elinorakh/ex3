@@ -17,6 +17,8 @@ The layout is responsive and styled via movie.css.
 
 <!-- Link to the main stylesheet -->
 <link href="/css/movie.css" type="text/css" rel="stylesheet">
+
+  <!-- Favicon -->
 <link href="./images/rotten.gif" type="image/gif" rel="shortcut icon" />
 </head>
 
@@ -27,23 +29,20 @@ The layout is responsive and styled via movie.css.
     <img src="./images/banner.png" alt="Rancid Tomatoes" />
 </div>
 
-<!--Movie Title -->
+<!-- title -->
 <h1><%= film.Title %> (<%= film.Year %>)</h1>
 
 <div class="contaniner">
-  
-  <!-- ===== Main Content Layout ===== -->
-   <div class="contant" style="display: flex; justify-content: space-between; width: 100%;">
+   
+
+    <div class="contant" >
       
-        <!-- ===== Right Section: Poster + Movie Details ===== -->
-      <div class="right" style="flex-basis: 30%; padding: 10px;">
+      <!-- Right Section - Poster + Rating + Details -->
+      <div class="right" style="flex-basis: 30%">
         <div style="text-align: center;">
         
-        <!-- Movie Poster -->
         <img src="<%= posterPath %>" alt="<%= film.Title %> Poster">
 
-         <!-- Movie Details (from FilmDetails table) -->
-        <div class="right-cont" style="margin-top: 15px;"></div>
 
         <div class="right-cont">
           <dl>
@@ -87,54 +86,56 @@ The layout is responsive and styled via movie.css.
           </dl>
         </div>
       </div>
+    </div>
+  
+
+      <!-- Spacer Column (Optional) -->
+      <div></div>
 
 
-     <!-- ===== Center Section: Rating Image ===== -->
     <div class="rating-section">
       <div class="Rating" style="background-color: #42642E;">
           <img src="./images/freshbig.png" alt="Fresh" />
           <span><%= film.Score %>%</span>
       </div> 
   </div>  
-
-        <!-- ===== Left Section: Reviews ===== -->
+        <!-- Left Section - Reviews -->
         <div class="left" >
             <% for (let i = 0; i < reviews.length; i += 2) { %>
                 <div class="reviews-row" style="display: flex; width: 100%; justify-content: space-between;">
                     <% for (let j = 0; j < 2 && (i + j) < reviews.length; j++) { %>
                         <div class="reviews-section" style="width: 48%; padding: 10px;">
-                            <!-- Review Text and Score -->
+                          
                             <div class="review">
-                              <p>
-                                <% if (reviews[i + j].ReviewText.toLowerCase().includes("bad") || reviews[i + j].ReviewText.toLowerCase().includes("rotten")) { %>
-                                  <img src="./images/rotten.gif" alt="Rotten" />
-                                <% } else { %>
-                                  <img src="./images/fresh.gif" alt="Fresh" />
-                                <% } %>
-                                <q><%= reviews[i + j].ReviewText %></q>
-                              </p>
+                                <p>
+                                    <% if (reviews[i + j].ReviewText.toLowerCase().includes("bad") || reviews[i + j].ReviewText.toLowerCase().includes("rotten")) { %>
+                                        <img src="./images/rotten.gif" alt="Rotten" />
+                                    <% } else { %>
+                                        <img src="./images/fresh.gif" alt="Fresh" />
+                                    <% } %>
+                                    <q><%= reviews[i + j].ReviewText %></q>
+                                </p>
                             </div>
-            
-                            <!-- Reviewer Info -->
                             <div class="<%= (i + j) % 2 === 0 ? 'review-left' : 'review-mid' %>">
-                              <p>
-                                <img src="./images/critic.gif" alt="Critic" />
-                                <%= reviews[i + j].ReviewerName %> <br />
-                                <%= reviews[i + j].Affiliation %>
-                              </p>
+                                <p>
+                                    <img src="./images/critic.gif" alt="Critic" />
+                                    <%= reviews[i + j].ReviewerName %> <br />
+                                    <%= reviews[i + j].Affiliation %>
+                                </p>
                             </div>
-                          </div>
-                        <% } %>
-                      </div>
+                        </div>
                     <% } %>
-                  </div>
                 </div>
-            
-                <!-- ===== Footer Section ===== -->
-                <div class="footer">
-                  (1-<%= reviews.length || 0 %>) of <%= typeof totalReviews !== "undefined" ? totalReviews : 0 %>
-                </div>
-            
-              </div>
-            </body>
-            </html>
+            <% } %>
+   
+          </div>
+    
+          
+        <!-- Footer -->
+        <div class="footer">
+          (1-<%= reviews.length || 0 %>) of <%= typeof totalReviews !== "undefined" ? totalReviews : 0 %>
+        </div>
+      </div>
+    </body>
+    </html>
+    
