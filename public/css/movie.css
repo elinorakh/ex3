@@ -1,3 +1,18 @@
+/* =============================================
+   File: movie.css
+   Authors: Mohammed Huleihil, Tasnem Tarabeh, Elinor Khalul
+   Date: 5/3/2025
+   Description:
+   Stylesheet for the movie review web page.
+   Defines the layout, colors, fonts, and responsive design
+   for the banner, rating, poster section, reviews, and footer.
+
+
+   /* Documentation  assisted by ChatGPT  */
+
+   ============================================= */
+
+   /* Basic page setup: removes default margins, sets font, and background */
 body {
   margin: 0;
   padding: 0;
@@ -15,6 +30,7 @@ body {
   transform: translateY(90px);
 }
 
+/* Top banner area with horizontal background and centered logo */
 .banner {
   background: url('./images/bannerbg.png') repeat-x;
   height: 4rem;
@@ -38,6 +54,7 @@ body {
   transform: translateX(-30%);
 }
 
+/* Styling for the movie title  */
 h1 {
   text-align: center;
   font-family: Verdana, Calibri, sans-serif;
@@ -48,6 +65,7 @@ h1 {
   margin: 1rem 0;
 }
 
+/* Main content wrapper: holds the three columns (right, rating, left) */
 .contaniner {
   display: flex;
   flex-wrap: wrap;
@@ -65,7 +83,7 @@ h1 {
 }
 
 
-
+/* Section for displaying movie rating (fresh/rotten) and percentage */
 .Rating {
   text-align: left;
   width: 100%;
@@ -84,8 +102,6 @@ h1 {
 }
 
 
-
-
 .Rating span {
   font-size: 4rem;
   font-weight: bold;
@@ -94,38 +110,17 @@ h1 {
   top: 0;
 }
 
-
+/* Flexbox layout container for the main content sections */
 .contant {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   width: 100%;
 }
-
-.rating-section {
-  order: 1;
-
-} 
-.reviews-section {
-  width: 48%;
-  padding: 10px;
-  margin: 0;
-}
+ 
 
 
-.review {
-  padding-left: 10px;
-  font-weight: bold;
-  border: 2px solid gray;
-  border-radius: 20px;
-  box-shadow: 0 1px 2px;
-  width: 90%;
-  margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-
-
+/* Right column: contains movie poster and metadata */
 .right {
   height: auto;
   width: 25%;
@@ -153,21 +148,34 @@ h1 {
   border-top-right-radius: 36px;
   border-top-left-radius: 36px;
 }
-.rating-section {
-  order: 1;
-  /* width: 20%; */
-}
 
+
+
+/* Left column: displays critic reviews */
 .left {
   order: 2;
-  width: 70%; /* עדיף מה-70% שב-html */
+  width: 70%; 
   margin: 0;
   padding: 0;
 }
 
 
 
+/* Individual review styling */
+.review {
+  padding-left: 10px;
+  font-weight: bold;
+  border: 2px solid gray;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
+
+
+/* Styling for movie details (e.g., director, genre, etc.) */
 .right-cont {
   position: static;
   margin: 0;
@@ -200,6 +208,7 @@ dd {
 text-align: left;
 }
 
+/* Bottom footer with review count and styling */
 .footer {
   background-color: #42642E;
   position: absolute;
@@ -214,6 +223,7 @@ text-align: left;
   color: white;
   margin-bottom: 0;
   z-index: -1;
+  height: auto;
 }
 
 .review-left {
@@ -228,8 +238,14 @@ text-align: left;
 
 
 @media screen and (max-width: 786px) {
-
-
+ 
+    .contaniner {
+      width: 100vw;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+  
 
   .contant {
     display: flex;
@@ -308,7 +324,6 @@ text-align: left;
     width: 100%;
     position: static !important;
     height: auto;
-    padding: 10px;
     margin-top: 5rem;
   }
 }
