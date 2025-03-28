@@ -1,7 +1,7 @@
 /* =============================================
    File: movie.css
    Authors: Mohammed Huleihil, Tasnem Tarabeh, Elinor Khalul
-   Date: 5/3/2025
+   Date: 13/3/2025
    Description:
    Stylesheet for the movie review web page.
    Defines the layout, colors, fonts, and responsive design
@@ -125,7 +125,7 @@ h1 {
   height: auto;
   width: 25%;
   background-color: #42642E;
-  padding: 15px;
+ 
   border-bottom-right-radius: 36px;
   border-top-right-radius: 36px;
   color: white;
@@ -133,20 +133,18 @@ h1 {
   margin-left: auto;
   grid-area: right;
   order: 3;
-  text-align: left; /* 👈 זה מה שמיישר את כל הטקסט שמאלה */
-
+  text-align: left;
   padding: 0;
 }
 
 .right img {
   width: 100%;
-  border-radius: 12px;
+
   margin-bottom: 1rem;
   position: relative;
   top: -1%;
   z-index: 10;
   border-top-right-radius: 36px;
-  border-top-left-radius: 36px;
 }
 
 
@@ -213,17 +211,16 @@ text-align: left;
   background-color: #42642E;
   position: absolute;
   bottom: 0;
-  height: 10vh;
-  width: 100%;
+  height: auto;
+  width: 90%;
   border-bottom-right-radius: 36px;
   border-bottom-left-radius: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  margin-bottom: 0;
   z-index: -1;
-  height: auto;
+
 }
 
 .review-left {
@@ -235,8 +232,6 @@ text-align: left;
 }
 
 /* media query */
-
-
 @media screen and (max-width: 786px) {
  
     .contaniner {
@@ -252,21 +247,22 @@ text-align: left;
     flex-direction: column;
     align-items: center;
 
-  
-    /* padding: 0 1rem; */
-    /* box-sizing: border-box; */
   }
 
   .right {
     order: 1;
     width: 100%;
-    margin-bottom: 0; /* ✅ מבטל רווח מתחת לחלון הימני */
+    margin-bottom: 0; 
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border-top-left-radius: 36px;
     border-top-right-radius: 36px;
   }
-
+  
+  .right img {
+    border-top-right-radius: 36px;
+    border-top-left-radius: 36px;
+  }
   .rating-section {
     order: 2;
     width: 100%;
