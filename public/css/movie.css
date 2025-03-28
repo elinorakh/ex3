@@ -55,7 +55,7 @@ h1 {
   justify-content: space-between;
   margin: 0 auto;
   width: 90%;
-  min-height: 150vh;
+
   height: auto;
   border: 4px solid gray;
   /* padding: 0 10px; */ /* ✅ רווח פנימי */
@@ -104,7 +104,7 @@ h1 {
 
 .rating-section {
   order: 1;
-  /* width: 18%; */
+
 } 
 .reviews-section {
   width: 48%;
@@ -139,7 +139,7 @@ h1 {
   grid-area: right;
   order: 3;
   text-align: left; /* 👈 זה מה שמיישר את כל הטקסט שמאלה */
-  /* margin: 0; */
+
   padding: 0;
 }
 
@@ -229,6 +229,8 @@ text-align: left;
 
 @media screen and (max-width: 786px) {
 
+
+
   .contant {
     display: flex;
     flex-direction: column;
@@ -256,6 +258,7 @@ text-align: left;
     z-index: auto !important;
     display: flex;
     justify-content: center;
+
   }
 
   .Rating {
@@ -265,9 +268,8 @@ text-align: left;
     position: static !important;
     border-radius: 0px;
     background: url('/images/rbg.png') repeat-x;
-    /* padding: 10px 20px; */
-    /* max-width: 300px; */
     width: 100%;
+
   }
 
   .Rating img {
@@ -282,9 +284,11 @@ text-align: left;
     display: block;
   }
 
+
   .left {
     order: 3;
     width: auto;
+
   }
 
   .reviews-row {
@@ -292,6 +296,7 @@ text-align: left;
     flex-direction: column !important;
     align-items: center;
     width: auto;
+
   }
 
   .reviews-section {
@@ -304,6 +309,7 @@ text-align: left;
     position: static !important;
     height: auto;
     padding: 10px;
+    margin-top: 5rem;
   }
 }
 
