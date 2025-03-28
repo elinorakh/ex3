@@ -50,8 +50,7 @@ body {
 .banner img {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-30%);
+ 
 }
 
 /* Styling for the movie title  */
@@ -73,11 +72,8 @@ h1 {
   justify-content: space-between;
   margin: 0 auto;
   width: 90%;
-
   height: auto;
   border: 4px solid gray;
- 
-
   border-radius: 40px;
   position: relative;
 }
@@ -88,17 +84,18 @@ h1 {
   text-align: left;
   width: 100%;
   margin-bottom: 16px;
-  border-top-left-radius: 36px;
-  border-top-right-radius: 36px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
   background: url('/images/rbg.png') repeat-x; /* רקע קיים */
   position: absolute;
   top: 0;
   z-index: 1; 
+  height: 90px;
 }
 
 .Rating img {
   margin: 0 auto;
-  border-top-left-radius: 36px;
+  border-top-left-radius: 40px;
 }
 
 
@@ -113,116 +110,190 @@ h1 {
 /* Flexbox layout container for the main content sections */
 .contant {
   display: flex;
-  flex-direction: row;
-
+  align-items: stretch;   /* גורם לכל הילדים להתאים בגובה */
+  justify-content: space-between;
   width: 100%;
+  gap: 2%;
+  min-height: 100%;
 }
+
  
 
 
 /* Right column: contains movie poster and metadata */
 .right {
-  height: auto;
-  width: 25%;
-  background-color: #42642E;
+
+    order: 2;
+    width: 25%;
+    background-color: #5d8b3e;
+    padding: 1.5rem 0 1.5rem 0;  /* ריווח רק למעלה ולמטה */
+    font-family: Calibri, sans-serif;
+    color: #1F1F1F;
+    border-top-right-radius: 40px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+              /* אין ריווח פנימי */
+    margin: 0;               /* אין ריווח חיצוני */
+   overflow: hidden;    
+   font-size: 1.1rem;
+  line-height: 1.6;
+  
+  
  
-  border-bottom-right-radius: 36px;
-  border-top-right-radius: 36px;
-  color: white;
-  font-size: 0.95rem;
-  margin-left: auto;
-  grid-area: right;
-  order: 3;
-  text-align: left;
-  padding: 0;
+
 }
 
 .right img {
+  display: block;
   width: 100%;
-
-  margin-bottom: 1rem;
+  margin: 0;
+  padding: 0;
+  border: none;
   position: relative;
-  top: -1%;
+  top: -2%;
   z-index: 10;
-  border-top-right-radius: 36px;
+  border-top-right-radius:40px;
+
 }
 
+/* רשימת מאפיינים */
+.right dl {
+  padding-right: 1.5rem;  /* רווח מימין */
+  padding-left: 1.5rem;   /* רווח משמאל */
+  box-sizing: border-box;
+}
+
+.right dt {
+  font-weight: bold;
+  margin-top: 0.9rem;
+  text-align: left;   /* ✅ רק הכותרת מיושרת לשמאל */      /* ✅ רווח בין dt ל־dd קודם */
+}
+
+.right dd {
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+/* קישורים בתחתית */
+.right-cont li {
+  list-style: none;            /* ✅ ללא בולטים */
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.right-cont a {
+  color: darkblue;             /* ✅ צבע קישור */
+  text-decoration: underline;
+}
+
+.right dl,
+.right dt,
+.right dd {
+  text-align: left;
+  color: #F1F1E4DA;
+}
 
 
 /* Left column: displays critic reviews */
 .left {
-  order: 2;
+  order: 1;
   width: 70%; 
   margin-bottom:  100px;;
   padding: 0;
  
 }
 
+/* מבנה שתי עמודות ביקורות בתוך האזור השמאלי-מרכזי */
+.reviews-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 5%;                /* רווח של 5% בין העמודות */
+  width: 100%;
+  margin-top: 1.5rem;
+}
 
+/* כל עמודת ביקורות תופסת 30% מהרוחב הכולל */
+.reviews-section {
+  width: 30%;
+}
 
-/* Individual review styling */
+/* תיבת ביקורת */
 .review {
-  padding-left: 10px;
+  background-color: #E3DAA3;          /* ✅ רקע ירוק */
+  border: 2px solid gray;             /* ✅ מסגרת אפורה */
+  border-radius: 20px;                /* ✅ פינות מעוגלות */
+  padding: 8px;                       /* ✅ ריווח פנימי */
   font-weight: bold;
-  border: 2px solid gray;
-  border-radius: 20px;
-  box-shadow: 0 1px 2px;
-  width: 90%;
-  margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  margin-bottom: 1.5rem;              /* ✅ רווח בין תיבות */
+}
+
+/* אייקון fresh/rotten */
+.review img {
+  margin-right: 5px;                  /* ✅ ריווח בין האייקון לטקסט */
+  flex-shrink: 0;
+}
+
+/* פרטי המבקר מתחת לתיבה */
+.review-left,
+.review-mid,
+.review-author {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* אייקון של המבקר */
+.review-left img,
+.review-mid img,
+.review-author img {
+  margin-right: 5px;                 /* ✅ ריווח בין האייקון לטקסט */
+  flex-shrink: 0;
+}
+
+.left, .right {
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 
 
-/* Styling for movie details (e.g., director, genre, etc.) */
-.right-cont {
-  position: static;
-  margin: 0;
-  padding: 0 10px;
-}
-
-.right-cont li {
-  list-style: none;
-}
-
-dl {
-  margin: 0;
-  padding: 0;
-  font-size: 0.9rem;
-}
-
-dt {
-  font-weight: bold;
-  margin-top: 0.7rem;
- 
-}
-
-dd {
-  margin-bottom: 1rem;
-  margin-left:5rex;
-}
-.right dl,
-.right dt,
-.right dd {
-text-align: left;
-}
 
 /* Bottom footer with review count and styling */
 .footer {
-  background-color: #42642E;
-  position: absolute;
-  bottom: 0;
-  height: auto;
-  width: 100%;
-  border-bottom-right-radius: 36px;
-  border-bottom-left-radius: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  z-index: -1;
+  background-color: #5d8b3e;
+  /* ✅ רקע */
+    width: 100%;
+    height: auto;
+    padding: 0.5rem;             /* ✅ רווח פנימי לטקסט */
+    color: #F1F1E4DA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius: 36px;
+    border-bottom-left-radius: 36px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-sizing: border-box;
+
+    position: static;   /* ❗️לא absolute */
+    margin-top: 1.5rem;
+    margin-top: 0;     /* אם יש */
+    padding-top: 0
+ 
 
 }
+  
 
 .review-left {
   margin-left: 15px;
@@ -234,6 +305,11 @@ text-align: left;
 
 /* media query */
 @media screen and (max-width: 786px) {
+  .banner img{
+     left: 50%;
+     transform: translateX(-20%);
+  }
+
  
     .contaniner {
       width: 100vw;
@@ -258,8 +334,9 @@ text-align: left;
     border-bottom-right-radius: 0;
     border-top-left-radius: 36px;
     border-top-right-radius: 36px;
-  }
+    padding: 0;
   
+  }
   .right img {
     border-top-right-radius: 36px;
     border-top-left-radius: 36px;
@@ -305,10 +382,9 @@ text-align: left;
   }
 
   .reviews-row {
-    display: flex;
-    flex-direction: column !important;
+    flex-direction: column;
     align-items: center;
-    width: auto;
+    gap: 1rem;
 
   }
 

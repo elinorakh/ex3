@@ -89,8 +89,7 @@ The layout is responsive and styled via movie.css.
     </div>
   
 
-      <!-- Spacer Column (Optional) -->
-      <div></div>
+
 
 
     <div class="rating-section">
@@ -98,13 +97,14 @@ The layout is responsive and styled via movie.css.
           <img src="./images/freshbig.png" alt="Fresh" />
           <span><%= film.Score %>%</span>
       </div> 
-  </div>  
+  </div> 
+   
         <!-- Left Section - Reviews -->
         <div class="left" >
             <% for (let i = 0; i < reviews.length; i += 2) { %>
                 <div class="reviews-row" style="display: flex; width: 100%; justify-content: space-around;">
                     <% for (let j = 0; j < 2 && (i + j) < reviews.length; j++) { %>
-                        <div class="reviews-section" style=" padding: 10px;">
+                        <div class="reviews-section" >
                           
                             <div class="review">
                                 <p>
@@ -129,13 +129,16 @@ The layout is responsive and styled via movie.css.
             <% } %>
    
           </div>
-    
+          
+        </div>
+
+
           
         <!-- Footer -->
         <div class="footer">
           (1-<%= reviews.length || 0 %>) of <%= typeof totalReviews !== "undefined" ? totalReviews : 0 %>
         </div>
-      </div>
+
     </body>
     </html>
     
