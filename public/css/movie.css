@@ -12,25 +12,21 @@
 
    /*============================================= */
 
-   /* Basic page setup: removes default margins, sets font, and background */
+   /* Reset and background */
 body {
   margin: 0;
   padding: 0;
   font-family: Tahoma, Arial, sans-serif;
   background: url('/images/background.png') repeat center center fixed;
 }
-.left {
+
+/* Optional middle sections */
+.left, .mid {
   transform: translateY(90px);
   height: auto;
-  
 }
 
-.mid {
-  height: auto;
-  transform: translateY(90px);
-}
-
-/* Top banner area with horizontal background and centered logo */
+/* Banner section */
 .banner {
   background: url('./images/bannerbg.png') repeat-x;
   height: 4rem;
@@ -43,7 +39,6 @@ body {
   height: 4rem; /* fits the required height */
   background-image: url('/images/bannerbg.png');
   background-repeat: repeat-x; /* repeats only horizontally */
-  /* background-size: auto 100%; */ /* maintains aspect ratio */
   background-position: top;
 }
 
@@ -53,7 +48,7 @@ body {
  
 }
 
-/* Styling for the movie title  */
+/* Movie title */
 h1 {
   text-align: center;
   font-family: Verdana, Calibri, sans-serif;
@@ -64,7 +59,8 @@ h1 {
   margin: 1rem 0;
 }
 
-/* Main content wrapper: holds the three columns (right, rating, left) */
+
+/* Main container */ 
 .contaniner {
   display: flex;
   flex-wrap: wrap;
@@ -79,7 +75,7 @@ h1 {
 }
 
 
-/* Section for displaying movie rating (fresh/rotten) and percentage */
+/* Rating bar */
 .Rating {
   text-align: left;
   width: 100%;
@@ -98,7 +94,6 @@ h1 {
   border-top-left-radius: 40px;
 }
 
-
 .Rating span {
   font-size: 4rem;
   font-weight: bold;
@@ -107,7 +102,7 @@ h1 {
   top: 0;
 }
 
-/* Flexbox layout container for the main content sections */
+/* Content layout */
 .contant {
   display: flex;
   align-items: stretch;   /* גורם לכל הילדים להתאים בגובה */
@@ -117,12 +112,8 @@ h1 {
   min-height: 100%;
 }
 
- 
-
-
-/* Right column: contains movie poster and metadata */
+/* Right column (Overview General) */
 .right {
-
     order: 2;
     width: 25%;
     background-color: #5d8b3e;
@@ -135,15 +126,10 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-              /* אין ריווח פנימי */
-    margin: 0;               /* אין ריווח חיצוני */
+    margin: 0;               
    overflow: hidden;    
    font-size: 1.1rem;
   line-height: 1.6;
-  
-  
- 
-
 }
 
 .right img {
@@ -156,57 +142,49 @@ h1 {
   top: -2%;
   z-index: 10;
   border-top-right-radius:40px;
-
 }
 
-/* רשימת מאפיינים */
 .right dl {
   padding-right: 1.5rem;  /* רווח מימין */
   padding-left: 1.5rem;   /* רווח משמאל */
   box-sizing: border-box;
+  color: #F1F1E4DA;
 }
 
 .right dt {
   font-weight: bold;
   margin-top: 0.9rem;
-  text-align: left;   /* ✅ רק הכותרת מיושרת לשמאל */      /* ✅ רווח בין dt ל־dd קודם */
+  text-align: left;   
 }
 
 .right dd {
   margin-bottom: 1rem;
   word-wrap: break-word;
+  text-align: left;
 }
 
-/* קישורים בתחתית */
+/* Links at the bottom */
 .right-cont li {
-  list-style: none;            /* ✅ ללא בולטים */
+  list-style: none;       
   margin-left: 0;
   padding-left: 0;
 }
 
 .right-cont a {
-  color: darkblue;             /* ✅ צבע קישור */
+  color: darkblue;            
   text-decoration: underline;
 }
 
-.right dl,
-.right dt,
-.right dd {
-  text-align: left;
-  color: #F1F1E4DA;
-}
 
-
-/* Left column: displays critic reviews */
+/* Left column (reviews section) */
 .left {
   order: 1;
   width: 70%; 
-  margin-bottom:  100px;;
+  margin-bottom:  100px;
   padding: 0;
  
 }
 
-/* מבנה שתי עמודות ביקורות בתוך האזור השמאלי-מרכזי */
 .reviews-row {
   display: flex;
   justify-content: space-between;
@@ -215,12 +193,11 @@ h1 {
   margin-top: 1.5rem;
 }
 
-/* כל עמודת ביקורות תופסת 30% מהרוחב הכולל */
 .reviews-section {
   width: 30%;
 }
 
-/* תיבת ביקורת */
+/* Reviews box */
 .review {
   background-color: #E3DAA3;          /* ✅ רקע ירוק */
   border: 2px solid gray;             /* ✅ מסגרת אפורה */
@@ -235,13 +212,13 @@ h1 {
   margin-bottom: 1.5rem;              /* ✅ רווח בין תיבות */
 }
 
-/* אייקון fresh/rotten */
+/* fresh/rotten icon */
 .review img {
   margin-right: 5px;                  /* ✅ ריווח בין האייקון לטקסט */
   flex-shrink: 0;
 }
 
-/* פרטי המבקר מתחת לתיבה */
+
 .review-left,
 .review-mid,
 .review-author {
@@ -252,30 +229,21 @@ h1 {
   font-size: 0.95rem;
 }
 
-/* אייקון של המבקר */
+
 .review-left img,
 .review-mid img,
 .review-author img {
-  margin-right: 5px;                 /* ✅ ריווח בין האייקון לטקסט */
+  margin-right: 5px;                
   flex-shrink: 0;
 }
 
-.left, .right {
-  height: auto;
-  display: flex;
-  flex-direction: column;
-}
 
-
-
-
-/* Bottom footer with review count and styling */
+/*  footer  */
 .footer {
   background-color: #5d8b3e;
-  /* ✅ רקע */
     width: 100%;
     height: auto;
-    padding: 0.5rem;             /* ✅ רווח פנימי לטקסט */
+    padding: 0.5rem;            
     color: #F1F1E4DA;
     display: flex;
     justify-content: center;
@@ -285,16 +253,11 @@ h1 {
     font-weight: bold;
     font-size: 1rem;
     box-sizing: border-box;
-
-    position: static;   /* ❗️לא absolute */
-    margin-top: 1.5rem;
-    margin-top: 0;     /* אם יש */
+    position: static;   
+    margin-top: 0;    
     padding-top: 0
- 
-
 }
   
-
 .review-left {
   margin-left: 15px;
 }
@@ -303,14 +266,14 @@ h1 {
   margin-left: 15px;
 }
 
-/* media query */
+
+/* Responsive styles for small screens */
 @media screen and (max-width: 786px) {
   .banner img{
      left: 50%;
      transform: translateX(-20%);
   }
 
- 
     .contaniner {
       width: 100vw;
       padding: 0;
